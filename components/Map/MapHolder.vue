@@ -126,7 +126,8 @@ export default {
           'text-anchor': 'top'
         },
         paint: {
-          'text-color' : "#ffffff"
+          'text-color' : "#ffffff",
+          'icon-color' : "#ff0000"
         }
       });
 
