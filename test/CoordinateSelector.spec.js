@@ -50,13 +50,15 @@ describe('CoordinateSelector.vue', () => {
     wrapper.find('input#lat2').setValue(23)
     wrapper.find('input#lon2').setValue(78)
     wrapper.vm.getCoordinates()
-    expect(wrapper.vm.coordinates).toEqual([[45,34],[78,23]]);
+    expect(wrapper.vm.coordinates).toEqual([
+      [45, 34],
+      [78, 23]
+    ])
   })
 
-  test('Coordinates load check test', () => {
+  test('Emit test', () => {
     const wrapper = mount(CoordinateSelector)
-    wrapper.setProps({distance : 314.40})
-    expect(wrapper.props().distance).toBe(314.40)
-    // expect(wrapper.find('#distanceholder').text()).toEqual("Distance : 314.40kms");
+    wrapper.vm.$emit('newCoords', [[45, 34], [78, 23]]);
+    expect(wrapper.emitted().newCoords).toBeTruthy()
   })
 })
