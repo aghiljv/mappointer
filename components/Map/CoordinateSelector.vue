@@ -56,15 +56,23 @@ export default {
   watch: {
     distance() {
       document.getElementById('distanceholder').textContent =
-        'Displacement : ' + this.$props.distance.toFixed(2) + 'kms'
+        'Distance : ' + this.$props.distance.toFixed(2) + 'kms'
     }
   },
   methods: {
     getCoordinates() {
-      let longitude1 = parseFloat(this.$refs.long1.value)
-      let latitude1 = parseFloat(this.$refs.lati1.value)
-      let longitude2 = parseFloat(this.$refs.long2.value)
-      let latitude2 = parseFloat(this.$refs.lati2.value)
+      let longitude1 = !isNaN(this.$refs.long1.value)
+        ? parseFloat(this.$refs.long1.value)
+        : this.$refs.long1.value
+      let latitude1 = !isNaN(this.$refs.lati1.value)
+        ? parseFloat(this.$refs.lati1.value)
+        : this.$refs.lati1.value
+      let longitude2 = !isNaN(this.$refs.long2.value)
+        ? parseFloat(this.$refs.long2.value)
+        : this.$refs.long2.value
+      let latitude2 = !isNaN(this.$refs.lati2.value)
+        ? parseFloat(this.$refs.lati2.value)
+        : this.$refs.lati2.value
       if (
         !isNaN(longitude1) &&
         !isNaN(latitude1) &&
@@ -72,7 +80,7 @@ export default {
         !isNaN(latitude2)
       ) {
         if (longitude1 == longitude2 && latitude1 == latitude2) {
-          alert('same source and destination')
+          alert('Same source and destination')
           this.$refs.long2.style.color = 'red'
           this.$refs.lati2.style.color = 'red'
         } else if (
@@ -85,7 +93,7 @@ export default {
           latitude2 > 90 ||
           latitude2 < -90
         ) {
-          alert('inputs out of bounds')
+          alert('Input/Inputs out of bounds')
         } else {
           this.coordinates = [
             [longitude1, latitude1],
@@ -94,7 +102,7 @@ export default {
           this.$emit('newCoords', this.coordinates)
         }
       } else {
-        alert('Incorrect Inputs')
+        alert('Incorrect Input/Inputs')
       }
     },
     keyUpEvent(refCode) {
@@ -155,7 +163,6 @@ button:focus {
   text-align: center;
   transition: 0.5s;
 }
-
 @media only screen and (max-width: 600px) {
   .inputElements {
     height: 15%;
