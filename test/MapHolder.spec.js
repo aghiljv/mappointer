@@ -22,8 +22,5 @@ describe('MapHolder.vue', () => {
     expect(wrapper.emitted().newDistance).toBeTruthy()
   })
 
-  // test('LoadedOnce test', () => {
-  //   wrapper.vm.calcAndJump()
-  //   expect(wrapper.emitted().newDistance).toBeTruthy()
-  // })
+  
 })
