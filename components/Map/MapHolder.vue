@@ -3,7 +3,6 @@
 </template>
 
 <script>
-// import mapboxgl from 'mapbox-gl/dist/mapbox-gl';
 export default {
   data() {
     return {
