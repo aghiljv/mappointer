@@ -12,10 +12,18 @@ jest.mock('mapbox-gl/dist/mapbox-gl', () => ({
 }))
 
 describe('MapHolder.vue', () => {
+  let wrapper
+  beforeEach(() => {
+    wrapper = mount(MapHolder)
+  })
 
   test('Emit test', () => {
-    const wrapper = mount(MapHolder)
-    wrapper.vm.$emit('newDistance', 314.40);
+    wrapper.vm.$emit('newDistance', 314.4)
     expect(wrapper.emitted().newDistance).toBeTruthy()
   })
+
+  // test('LoadedOnce test', () => {
+  //   wrapper.vm.calcAndJump()
+  //   expect(wrapper.emitted().newDistance).toBeTruthy()
+  // })
 })

@@ -12,9 +12,11 @@ jest.mock('mapbox-gl/dist/mapbox-gl', () => ({
 }))
 
 describe('Layout.vue', () => {
-
+  let wrapper
+  beforeEach(() => {
+    wrapper = shallowMount(Layout)
+  })
   test('Passcoords test', () => {
-    const wrapper = shallowMount(Layout)
     wrapper.vm.passCoords([
       [45, 34],
       [78, 23]
@@ -26,8 +28,7 @@ describe('Layout.vue', () => {
   })
 
   test('PassDistance test', () => {
-    const wrapper = shallowMount(Layout)
-    wrapper.vm.passDistance(314.40)
-    expect(wrapper.vm.distance).toBe(314.40)
+    wrapper.vm.passDistance(314.4)
+    expect(wrapper.vm.distance).toBe(314.4)
   })
 })
