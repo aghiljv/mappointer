@@ -22,30 +22,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.21% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/19</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">67.57% </span>
+                <span class="strong">83.78% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>25/37</span>
+                <span class='fraction'>31/37</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.21% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/19</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
@@ -228,7 +228,8 @@
 <a name='L170'></a><a href='#L170'>170</a>
 <a name='L171'></a><a href='#L171'>171</a>
 <a name='L172'></a><a href='#L172'>172</a>
-<a name='L173'></a><a href='#L173'>173</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">27x</span>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -278,14 +279,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -336,8 +338,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -443,7 +445,7 @@
     &lt;button type="button" class="inputElements" @click="getCoordinates"&gt;
       Find
     &lt;/button&gt;
-    &lt;div id="distanceholder"&gt;&lt;/div&gt;
+    &lt;div id="distanceholder"&gt;{{distanceText}}&lt;/div&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
@@ -451,13 +453,14 @@
 export default {
   data() {
     return {
-      coordinates: []
+      coordinates: [],
+      distanceText: ""
     }
   },
   props: ['distance'],
   watch: {
-<span class="fstat-no" title="function not covered" >    distance() {</span>
-<span class="cstat-no" title="statement not covered" >      document.getElementById('distanceholder').textContent =</span>
+    distance() {
+      this.distanceText =
         'Distance : ' + this.$props.distance.toFixed(2) + 'kms'
     }
   },
@@ -507,9 +510,9 @@ export default {
         alert('Incorrect Input/Inputs')
       }
     },
-<span class="fstat-no" title="function not covered" >    keyUpEvent(refCode) {</span>
-<span class="cstat-no" title="statement not covered" >      let entry = this.$refs[refCode]</span>
-<span class="cstat-no" title="statement not covered" >      entry.style.color =</span>
+    keyUpEvent(refCode) {
+      let entry = this.$refs[refCode]
+<span class="branch-3 cbranch-no" title="branch not covered" ><span class="branch-2 cbranch-no" title="branch not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >      entry.style.color =</span></span></span>
         isNaN(entry.value) ||
         (refCode.includes('long') &amp;&amp;
           (parseFloat(entry.value) &gt; 180 || parseFloat(entry.value) &lt; -180)) ||
@@ -579,7 +582,7 @@ button:focus {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Feb 25 2020 21:37:32 GMT+0530 (India Standard Time)
+                at Thu Feb 27 2020 22:13:47 GMT+0530 (India Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

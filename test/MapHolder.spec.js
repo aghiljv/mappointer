@@ -13,8 +13,12 @@ jest.mock('mapbox-gl/dist/mapbox-gl', () => ({
 
 describe('MapHolder.vue', () => {
   let wrapper
+
   beforeEach(() => {
-    wrapper = mount(MapHolder)
+    
+    wrapper = mount(MapHolder, {
+      propsData: {coordinates : [[1,2],[3,4]]}
+    })
   })
 
   test('Emit test', () => {
@@ -22,8 +26,19 @@ describe('MapHolder.vue', () => {
     expect(wrapper.emitted().newDistance).toBeTruthy()
   })
 
-  // test('LoadedOnce test', () => {
-  //   wrapper.vm.calcAndJump()
+  // test('calcAndJump call test', () => {
+    
+  //   const calcAndJump = jest.fn()
+  //   wrapper.setMethods({ calcAndJump })
+  //   wrapper.vm.updateSources()
+  //   expect(calcAndJump).toHaveBeenCalled()
+  // })
+
+  // test('addMultiplePoints test', () => {
+  //   const addMultiplePoints = jest.fn()
+  //   wrapper.setMethods({ addMultiplePoints })
+  //   wrapper.setProps({coordinates : [[2,2],[3,4]]})
+  //   wrapper.vm.calcAndJump();
   //   expect(wrapper.emitted().newDistance).toBeTruthy()
   // })
 })

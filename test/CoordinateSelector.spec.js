@@ -5,7 +5,9 @@ describe('CoordinateSelector.vue', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = mount(CoordinateSelector)
+    wrapper = mount(CoordinateSelector, {
+      attachToDocument: true
+    })
     window.alert = jest.fn()
   })
 
@@ -44,22 +46,36 @@ describe('CoordinateSelector.vue', () => {
   })
 
   test('Coordinates load check test', () => {
-    wrapper.find('input#lat1').setValue(34)
-    wrapper.find('input#lon1').setValue(45)
-    wrapper.find('input#lat2').setValue(23)
-    wrapper.find('input#lon2').setValue(78)
+    wrapper.find('input#lat1').setValue(1)
+    wrapper.find('input#lon1').setValue(2)
+    wrapper.find('input#lat2').setValue(3)
+    wrapper.find('input#lon2').setValue(4)
     wrapper.vm.getCoordinates()
     expect(wrapper.vm.coordinates).toEqual([
-      [45, 34],
-      [78, 23]
+      [2, 1],
+      [4, 3]
     ])
   })
 
   test('Emit test', () => {
     wrapper.vm.$emit('newCoords', [
-      [45, 34],
-      [78, 23]
+      [1, 2],
+      [3, 4]
     ])
     expect(wrapper.emitted().newCoords).toBeTruthy()
+  })
+
+  test('keyUpEvent test', () => {
+    wrapper.find('input#lat1').setValue(1)
+    wrapper.vm.keyUpEvent('lati1')
+    const entryColor = wrapper.find({ ref: 'lati1' }).attributes().style
+    expect(entryColor).toContain('black')
+  })
+
+  test('Watcher test', async () => {
+    wrapper.setProps({ distance: 314.5 })
+    await wrapper.vm.$nextTick(() => {
+      expect(wrapper.vm.distanceText).toEqual('Distance : 314.50kms')
+    })
   })
 })

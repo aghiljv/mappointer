@@ -41,7 +41,7 @@
     <button type="button" class="inputElements" @click="getCoordinates">
       Find
     </button>
-    <div id="distanceholder"></div>
+    <div id="distanceholder">{{distanceText}}</div>
   </div>
 </template>
 
@@ -49,13 +49,14 @@
 export default {
   data() {
     return {
-      coordinates: []
+      coordinates: [],
+      distanceText: ""
     }
   },
   props: ['distance'],
   watch: {
     distance() {
-      document.getElementById('distanceholder').textContent =
+      this.distanceText =
         'Distance : ' + this.$props.distance.toFixed(2) + 'kms'
     }
   },
