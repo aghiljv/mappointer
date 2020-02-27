@@ -5,7 +5,7 @@ describe('CoordinateSelector.vue', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = mount(CoordinateSelector,{
+    wrapper = mount(CoordinateSelector, {
       attachToDocument: true
     })
     window.alert = jest.fn()
@@ -72,13 +72,10 @@ describe('CoordinateSelector.vue', () => {
     expect(entryColor).toContain('black')
   })
 
-  test('Watcher test', ()=>{
-    
-    wrapper.vm.$nextTick(()=>{
-      wrapper.setProps({distance : 314.50})
-      const distanceHolder = wrapper.find('div#distanceholder').text()
-      expect(distanceHolder).toEqual("Distance : 314.50kms");
-      done();
+  test('Watcher test', async () => {
+    wrapper.setProps({ distance: 314.5 })
+    await wrapper.vm.$nextTick(() => {
+      expect(wrapper.vm.distanceText).toEqual('Distance : 314.50kms')
     })
   })
 })
