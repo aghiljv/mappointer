@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import MapHolder from '@/components/Map/MapHolder'
+import index from '@/pages/index'
 
 jest.mock('mapbox-gl/dist/mapbox-gl', () => ({
   GeolocateControl: jest.fn(),
@@ -11,15 +11,14 @@ jest.mock('mapbox-gl/dist/mapbox-gl', () => ({
   NavigationControl: jest.fn()
 }))
 
-describe('MapHolder.vue', () => {
+describe('index.vue', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = mount(MapHolder)
+    wrapper = mount(index)
   })
 
-  test('Emit test', () => {
-    wrapper.vm.$emit('newDistance', 314.4)
-    expect(wrapper.emitted().newDistance).toBeTruthy()
+  test('index test', () => {
+    expect(true).toBeTruthy()
   })
 })
