@@ -1,5 +1,6 @@
 <template>
   <div class="csContainer">
+    Source
     <div class="inputElements">
       <input
         type="text"
@@ -19,6 +20,7 @@
         @keyup="keyUpEvent('long1')"
       />
     </div>
+    Destination
     <div class="inputElements">
       <input
         type="text"

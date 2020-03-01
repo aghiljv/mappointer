@@ -65,12 +65,12 @@ export default {
   .selectorContainer {
     bottom: 0%;
     width: 100%;
-    height: 30%;
+    height: 40%;
   }
   .mapContainer {
     top: 0%;
     width: 100%;
-    height: 70%;
+    height: 60%;
   }
 }
 </style>

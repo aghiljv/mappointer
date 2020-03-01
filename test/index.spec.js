@@ -19,6 +19,6 @@ describe('index.vue', () => {
   })
 
   test('index test', () => {
-    expect(true).toBeTruthy()
+    expect(wrapper).toBeTruthy()
   })
 })
