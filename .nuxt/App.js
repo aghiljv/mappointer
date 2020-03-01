@@ -14,7 +14,7 @@ import _6f6c098b from '../layouts/default.vue'
 const layouts = { "_default": _6f6c098b }
 
 export default {
-  head: {"title":"","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Fapi.mapbox.com\u002Fmapbox-gl-js\u002Fv1.7.0\u002Fmapbox-gl.css"}],"script":[{"src":"https:\u002F\u002Fnpmcdn.com\u002F@turf\u002Fturf@5.1.6\u002Fturf.min.js"}],"style":[]},
+  head: {"title":"Map Finder","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Fapi.mapbox.com\u002Fmapbox-gl-js\u002Fv1.7.0\u002Fmapbox-gl.css"}],"script":[{"src":"https:\u002F\u002Fnpmcdn.com\u002F@turf\u002Fturf@5.1.6\u002Fturf.min.js"}],"style":[]},
 
   render (h, props) {
     const loadingEl = h('NuxtLoading', { ref: 'loading' })
