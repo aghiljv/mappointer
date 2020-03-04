@@ -47,7 +47,7 @@
     <button type="button" class="inputElements" data-cy="find_button" @click="getCoordinates">
       Find
     </button>
-    <div id="distanceholder">{{distanceText}}</div>
+    <div id="distanceholder" data-cy="distance_container">{{distanceText}}</div>
   </div>
 </template>
 
