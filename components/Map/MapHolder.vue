@@ -1,5 +1,5 @@
 <template>
-  <div id="mapContainer"></div>
+  <div id="mapContainer" data-cy="main_map"></div>
 </template>
 
 <script>

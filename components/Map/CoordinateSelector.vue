@@ -9,6 +9,7 @@
         placeholder="Source Latitude"
         class="inputMap"
         @keyup="keyUpEvent('lati1')"
+        data-cy="latitude1"
       />
       <input
         type="text"
@@ -18,6 +19,7 @@
         placeholder="Source Longitude"
         class="inputMap"
         @keyup="keyUpEvent('long1')"
+        data-cy="longitude1"
       />
     </div>
     Destination
@@ -29,6 +31,7 @@
         placeholder="Destination Latitude"
         class="inputMap"
         @keyup="keyUpEvent('lati2')"
+        data-cy="latitude2"
       />
       <input
         type="text"
@@ -37,10 +40,11 @@
         placeholder="Destination Longitude"
         class="inputMap"
         @keyup="keyUpEvent('long2')"
+        data-cy="longitude2"
       />
     </div>
 
-    <button type="button" class="inputElements" @click="getCoordinates">
+    <button type="button" class="inputElements" data-cy="find_button" @click="getCoordinates">
       Find
     </button>
     <div id="distanceholder">{{distanceText}}</div>

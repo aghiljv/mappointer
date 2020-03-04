@@ -1,5 +1,5 @@
 <template>
-  <div class="headerHolder">Finder</div>
+  <div class="headerHolder" data-cy="main_header">Finder</div>
 </template>
 
 <style scoped>
